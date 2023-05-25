@@ -1,0 +1,137 @@
+{
+	"Id": "a6e72fd4-49e9-4be6-9d54-3f4a4a6ab77d",
+	"Name": "Tech University",
+	"Founders": [{
+			"Id": "0d61b68c-f05e-4e6c-822d-6769578f241c",
+			"Name": "Ada Lovelace",
+			"ImageURL": "https://image.tmdb.org/t/p/w500/9OywzJLgobAbSGfhMXligzTylko.jpg"
+		},
+		{
+			"Id": "3ef95ce8-7302-470c-afc2-f59d2a3cb2df",
+			"Name": "Alan Turing",
+			"ImageURL": "https://image.tmdb.org/t/p/w500/6kbAMLteGO8yyewYau6bJ683sw7.jpg"
+		}
+	],
+	"Departments": [{
+			"Id": "6416b2c8-9f8f-4a8e-9f74-ce919ee08a2f",
+			"Name": "Computer Science",
+			"Head": {
+				"Id": "b57fe795-0fbf-4da8-bab8-c6a2ba4e709d",
+				"FullName": "Grace Hopper",
+				"ImageURL": "https://image.tmdb.org/t/p/w500/xZ2KER2gOHbuHP2GJoODuXDSZCb.jpg"
+			},
+			"Courses": [{
+					"Id": "e3257cb7-0984-42c1-b432-d640dfb0a029",
+					"Name": "Introduction to Programming",
+					"Instructor": {
+						"Id": "7cda860a-695b-4aac-956a-fb7245c75ef3",
+						"FullName": "Margaret Hamilton",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/4ZSzEDVdxWVMVO4oZDvoodQOEfr.jpg"
+					}
+				},
+				{
+					"Id": "4fcd662a-e317-45f8-a5fc-d6c7042f2be8",
+					"Name": "Data Structures and Algorithms",
+					"Instructor": {
+						"Id": "47285220-ed1a-42fb-a623-33daff09c6d2",
+						"FullName": "Donald Knuth",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/vqzNJRH4YyquRiWyszXf9xvtfrL.jpg"
+					}
+				}
+			]
+		},
+		{
+			"Id": "6b33db47-0d19-46de-8851-9250c97e5302",
+			"Name": "Physics",
+			"Head": {
+				"Id": "23a8c6db-1d91-4e33-9e42-9c73eae2dcdc",
+				"FullName": "Richard Feynman",
+				"ImageURL": "https://image.tmdb.org/t/p/w500/5VXH5vn7Q7e5yb5w5D5vfOw5xzu.jpg"
+			},
+			"Courses": [{
+					"Id": "e3257cb7-0984-42c1-b432-d640dfb0a030",
+					"Name": "Quantum Mechanics",
+					"Instructor": {
+						"Id": "7cda860a-695b-4aac-956a-fb7245c75ef4",
+						"FullName": "Niels Bohr",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/pU3bnutJU91u3b4IeRPFWAKIOwY.jpg"
+					}
+				},
+				{
+					"Id": "4fcd662a-e317-45f8-a5fc-d6c7042f2be9",
+					"Name": "Electromagnetism",
+					"Instructor": {
+						"Id": "47285220-ed1a-42fb-a623-33daff09c6d3",
+						"FullName": "James Clerk Maxwell",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/xltjMeLlxywym14NEizl0chn3yU.jpg"
+					}
+				},
+				{
+					"Id": "7cda860a-695b-4aac-956a-fb7245c75ef5",
+					"Name": "Classical Mechanics",
+					"Instructor": {
+						"Id": "e3257cb7-0984-42c1-b432-d640dfb0a031",
+						"FullName": "Isaac Newton",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/ouOojiypBE6rAvpN8VKM7xAYJ78.jpg"
+					}
+				}
+			]
+		},
+		{
+			"Id": "7b33db47-0d19-46de-8851-9250c97e5303",
+			"Name": "Mathematics",
+			"Head": {
+				"Id": "0d61b68c-f05e-4e6c-822d-6769578f241c",
+				"FullName": "Ada Lovelace",
+				"ImageURL": "https://image.tmdb.org/t/p/w500/9OywzJLgobAbSGfhMXligzTylko.jpg"
+			},
+			"Courses": [{
+					"Id": "e3257cb7-0984-42c1-b432-d640dfb0a032",
+					"Name": "Calculus",
+					"Instructor": {
+						"Id": "7cda860a-695b-4aac-956a-fb7245c75ef6",
+						"FullName": "Gottfried Wilhelm Leibniz",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/zGVbrulkupqpbwgiNedkJPyQum4.jpg"
+					}
+				},
+				{
+					"Id": "4fcd662a-e317-45f8-a5fc-d6c7042f2bf0",
+					"Name": "Linear Algebra",
+					"Instructor": {
+						"Id": "47285220-ed1a-42fb-a623-33daff09c6d4",
+						"FullName": "Georg Friedrich Bernhard Riemann",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/6tPOZmNQ1tbzlhcMmyhYN1D62jx.jpg"
+					}
+				}
+			]
+		},
+		{
+			"Id": "8b33db47-0d19-46de-8851-9250c97e5304",
+			"Name": "Chemistry",
+			"Head": {
+				"Id": "23a8c6db-1d91-4e33-9e42-9c73eae2dece",
+				"FullName": "Dmitri Mendeleev",
+				"ImageURL": "https://image.tmdb.org/t/p/w500/qUcmEqnzIwlwZxSyTf3WliSfAjJ.jpg"
+			},
+			"Courses": [{
+					"Id": "e3257cb7-0984-42c1-b432-d640dfb0a033",
+					"Name": "Organic Chemistry",
+					"Instructor": {
+						"Id": "7cda860a-695b-4aac-956a-fb7245c75ef7",
+						"FullName": "Friedrich August Kekulé",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/eLT8Cu357VOwBVTitkmlDEg32Fs.jpg"
+					}
+				},
+				{
+					"Id": "4fcd662a-e317-45f8-a5fc-d6c7042f2bf1",
+					"Name": "Physical Chemistry",
+					"Instructor": {
+						"Id": "47285220-ed1a-42fb-a623-33daff09c6d5",
+						"FullName": "Linus Pauling",
+						"ImageURL": "https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg"
+					}
+				}
+			]
+		}
+	]
+}

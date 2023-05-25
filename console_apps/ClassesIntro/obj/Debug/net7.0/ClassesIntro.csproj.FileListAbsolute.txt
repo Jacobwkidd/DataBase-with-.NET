@@ -1,0 +1,15 @@
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\bin\Debug\net7.0\ClassesIntro.exe
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\bin\Debug\net7.0\ClassesIntro.deps.json
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\bin\Debug\net7.0\ClassesIntro.runtimeconfig.json
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\bin\Debug\net7.0\ClassesIntro.dll
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\bin\Debug\net7.0\ClassesIntro.pdb
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.csproj.AssemblyReference.cache
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.AssemblyInfoInputs.cache
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.AssemblyInfo.cs
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.csproj.CoreCompileInputs.cache
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.dll
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\refint\ClassesIntro.dll
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.pdb
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ClassesIntro.genruntimeconfig.cache
+C:\Users\003012173\Desktop\DataBase with .NET\console_apps\ClassesIntro\obj\Debug\net7.0\ref\ClassesIntro.dll
