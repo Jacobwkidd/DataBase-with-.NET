@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
+namespace StudentSystem.Services;
+
+//install dotnet windows 10 && commands in notion -- don't use this
+// then dotnet build
 
 public class BasicQueryServices{
     private ApplicationDbContext _context;
@@ -39,6 +43,54 @@ public class BasicQueryServices{
                                     //.Select(course => course.CourseName)
                                     .ToList();
     }
+
+    // public string GetDepartmentWithMostCourses(){
+    //     return _context.Departments
+    //                                 .Where(dept => dept.Courses.Count > )
+    // }
+
+    public List<string> GetStudentsEnrolledInMoreThanFiveCourses(){
+        return _context.Students
+                                .Where(Stud => Stud.Courses.Count > 5)
+                                .Select(stud => stud.FirstName)
+                                .ToList();
+    }
+
+    public List<string> GetInstructorsInDepartment(string departmentName){
+        return _context.Departments
+                                    .Where(dept => dept.DeptName == departmentName)
+                                    .SelectMany(dept => dept.Courses
+                                                        .Select(course => course.Instructor.LastName)
+                                    )
+                                    .Distinct()
+                                    .ToList();
+
+                                    //Another way of doing this
+                                    //.SelectMany(dept => dept.Courses)
+                                    //.Select(course => course.Instructor.LastName)
+    }
+
+
+    // public List<string> GetCoursesByInstructor(string instructorName){
+            //retrun _context.Course 
+                                //.Where(course =>)
+    // }
+
+    // public List<string> GetStudentsWithNoCourses(){
+    //     return _context.Students 
+    //                             .Where(studCourse => studCourse.Courses.Count = 0)
+    //                             .ToList();
+    // }
+
+    // public List<string> GetDepartmentsWithNoCourses(){
+
+    // }
+
+    // public string GetInstructorWithMostCourses(){
+
+    // }
+
+
 
 
 }

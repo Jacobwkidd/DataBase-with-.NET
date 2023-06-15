@@ -3,28 +3,49 @@ using StudentSystem.Models;
 using StudentSystem.Data;
 using System;
 using System.Collections.Generic;
+using StudentSystem.Services;
 
 ServiceProvider _serviceProvider;
-//DatabaseService _dbService;
+DatabaseService _dbService;
 BasicQueryServices _basicDbService;
 
 var services = new ServiceCollection();
 
 services.AddDbContext<ApplicationDbContext>();
 services.AddScoped<BasicQueryServices>();
+services.AddScoped<DatabaseService>();
 
 _serviceProvider = services.BuildServiceProvider();
 _basicDbService = _serviceProvider.GetRequiredService<BasicQueryServices>();
+_dbService = _serviceProvider.GetRequiredService<DatabaseService>();
 
-var instructorNames = _basicDbService.GetAllInstructorNames();
-foreach(string name in instructorNames){
-    System.Console.WriteLine(name);
-}
+// var instructorNames = _basicDbService.GetAllInstructorNames();
+// foreach(string name in instructorNames){
+//     System.Console.WriteLine(name);
+// }
 
-var studentsInCourse = _basicDbService.GetStudentsInCourse("Algebra");
-System.Console.WriteLine("Students in course");
-foreach(string name in studentsInCourse){
-    System.Console.WriteLine(name);
-}
+// var studentsInCourse = _basicDbService.GetStudentsInCourse("Algebra");
+// System.Console.WriteLine("Students in course");
+// foreach(string name in studentsInCourse){
+//     System.Console.WriteLine(name);
+// }
+
+////////////////=--------------------       Database Start
+
+
+var intialStud = await _dbService.GetStudentById(1);
+System.Console.WriteLine(intialStud);
+
+System.Console.WriteLine(intialStud.Courses[0].CourseName);
+
+var instr = await _dbService.GetInstructorById(1);
+
+
+System.Console.WriteLine("--------------------");
+System.Console.WriteLine("--------------------");
+System.Console.WriteLine(instr.LastName);
+System.Console.WriteLine(instr.Department.DeptName);
+
+
 _serviceProvider.Dispose();
 
