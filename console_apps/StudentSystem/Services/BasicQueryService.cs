@@ -44,10 +44,12 @@ public class BasicQueryServices{
                                     .ToList();
     }
 
-    // public string GetDepartmentWithMostCourses(){
-    //     return _context.Departments
-    //                                 .Where(dept => dept.Courses.Count > )
-    // }
+    public string GetDepartmentWithMostCourses(){
+        return _context.Departments // or OrderByDescending(dept => dept.Courses.Count == 0) maybe group by it too
+                                    .Max(dept => dept.Courses.Count)
+                                    .Select(dept => dept.DeptName)
+                                    .ToList();
+    }
 
     public List<string> GetStudentsEnrolledInMoreThanFiveCourses(){
         return _context.Students
@@ -71,24 +73,34 @@ public class BasicQueryServices{
     }
 
 
-    // public List<string> GetCoursesByInstructor(string instructorName){
-            //retrun _context.Course 
-                                //.Where(course =>)
-    // }
+    public List<string> GetCoursesByInstructor(string instructorName){
+            retrun _context.Instructor
+                                .Where(Intru => Intru.FirstName == instructorName)
+                                .SelectMany(intructor => instructor.Courses)
+                                .Select(course => course.CourseName)
+                                .ToList();
+    }
 
-    // public List<string> GetStudentsWithNoCourses(){
-    //     return _context.Students 
-    //                             .Where(studCourse => studCourse.Courses.Count = 0)
-    //                             .ToList();
-    // }
+    public List<string> GetStudentsWithNoCourses(){
+        return _context.Students 
+                                .Min(studCourse => studCourse.Courses.Count)
+                                .Select(studCourse => stud.FirstName)
+                                .ToList();
+    }
 
-    // public List<string> GetDepartmentsWithNoCourses(){
+    public List<string> GetDepartmentsWithNoCourses(){
+        return _context.Departments
+                                    .Min(dept => dept.Course.Count)
+                                    .Select(dept => dept.DeptName)
+                                    .ToList();
+    }
 
-    // }
-
-    // public string GetInstructorWithMostCourses(){
-
-    // }
+    public string GetInstructorWithMostCourses(){
+        return _context.Instructor
+                                  .Max(instru => intru.Course.Count)
+                                  .Select(instru => instru.FirstName)
+                                  .ToList();
+    }
 
 
 

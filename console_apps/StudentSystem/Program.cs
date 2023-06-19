@@ -19,20 +19,40 @@ _serviceProvider = services.BuildServiceProvider();
 _basicDbService = _serviceProvider.GetRequiredService<BasicQueryServices>();
 _dbService = _serviceProvider.GetRequiredService<DatabaseService>();
 
-// var instructorNames = _basicDbService.GetAllInstructorNames();
-// foreach(string name in instructorNames){
-//     System.Console.WriteLine(name);
-// }
+var instructorNames = _basicDbService.GetAllInstructorNames();
+ foreach(string name in instructorNames){
+    System.Console.WriteLine(name);
+}
 
+
+
+var deptMoreThanOne = _basicDbService.GetDepartmentsWithMoreThanOneCourses();
 // var studentsInCourse = _basicDbService.GetStudentsInCourse("Algebra");
 // System.Console.WriteLine("Students in course");
 // foreach(string name in studentsInCourse){
 //     System.Console.WriteLine(name);
 // }
 
+
+
+var deptMostCourses = _basicDbService.GetDepartmentWithMostCourses();
+var studsMoreThenFive = _basicDbService.GetStudentsEnrolledInMoreThanFiveCourses();
+var intruInDept = _basicDbService.GetInstructorsInDepartment();
+
+
+
+
+var courseByInst = _basicDbService.GetCoursesByInstructor();
+var studsWithNoCourse = _basicDbService.GetStudentsWithNoCourses();
+var deptWithNoCourse = _basicDbService.GetDepartmentsWithNoCourses();
+var IntruWithMostCourses = _basicDbService.GetInstructorWithMostCourses();
+
+
+
+
 ////////////////=--------------------       Database Start
 
-
+System.Console.WriteLine("____________________________________________ Start of Database Service");
 var intialStud = await _dbService.GetStudentById(1);
 System.Console.WriteLine(intialStud);
 
