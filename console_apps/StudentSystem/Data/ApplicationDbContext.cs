@@ -8,6 +8,7 @@ public class ApplicationDbContext : DbContext
     //making a data bases  ^  <model>  the name of database - Students
     public DbSet<Course> Courses { get; set; }
     public DbSet<Department> Departments { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite("Data Source=school.db");
 }

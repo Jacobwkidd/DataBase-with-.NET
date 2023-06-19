@@ -46,9 +46,9 @@ public class BasicQueryServices{
 
     public string GetDepartmentWithMostCourses(){
         return _context.Departments // or OrderByDescending(dept => dept.Courses.Count == 0) maybe group by it too
-                                    .Max(dept => dept.Courses.Count)
+                                    .OrderByDescending(dept => dept.Courses.Count)
                                     .Select(dept => dept.DeptName)
-                                    .ToList();
+                                    .First();
     }
 
     public List<string> GetStudentsEnrolledInMoreThanFiveCourses(){
@@ -74,32 +74,32 @@ public class BasicQueryServices{
 
 
     public List<string> GetCoursesByInstructor(string instructorName){
-            retrun _context.Instructor
+            return _context.Instructors
                                 .Where(Intru => Intru.FirstName == instructorName)
-                                .SelectMany(intructor => instructor.Courses)
+                                .SelectMany(instructor => instructor.Courses)
                                 .Select(course => course.CourseName)
                                 .ToList();
     }
 
     public List<string> GetStudentsWithNoCourses(){
         return _context.Students 
-                                .Min(studCourse => studCourse.Courses.Count)
-                                .Select(studCourse => stud.FirstName)
+                                .OrderByDescending(studCourse => studCourse.Courses.Count < 0)                           
+                                .Select(studCourse => studCourse.FirstName)
                                 .ToList();
     }
 
     public List<string> GetDepartmentsWithNoCourses(){
         return _context.Departments
-                                    .Min(dept => dept.Course.Count)
+                                    .OrderByDescending(dept => dept.Courses.Count < 0)
                                     .Select(dept => dept.DeptName)
                                     .ToList();
     }
 
     public string GetInstructorWithMostCourses(){
-        return _context.Instructor
-                                  .Max(instru => intru.Course.Count)
+        return _context.Instructors
+                                  .OrderByDescending(instru => instru.Courses.Count)
                                   .Select(instru => instru.FirstName)
-                                  .ToList();
+                                  .First();
     }
 
 

@@ -21,32 +21,72 @@ _dbService = _serviceProvider.GetRequiredService<DatabaseService>();
 
 var instructorNames = _basicDbService.GetAllInstructorNames();
  foreach(string name in instructorNames){
-    System.Console.WriteLine(name);
+    System.Console.WriteLine("1.)" + name);
 }
 
-
+System.Console.WriteLine("-------------------------");
 
 var deptMoreThanOne = _basicDbService.GetDepartmentsWithMoreThanOneCourses();
-// var studentsInCourse = _basicDbService.GetStudentsInCourse("Algebra");
-// System.Console.WriteLine("Students in course");
-// foreach(string name in studentsInCourse){
-//     System.Console.WriteLine(name);
-// }
+foreach(string name in deptMoreThanOne){
+    System.Console.WriteLine("2.) " + name);
+}
 
+System.Console.WriteLine("----------------------");
 
+var studentsInCourse = _basicDbService.GetStudentsInCourse("Algebra");
+System.Console.WriteLine("Students in course");
+foreach(string name in studentsInCourse){
+    System.Console.WriteLine("3.) " + name);
+}
+
+System.Console.WriteLine("----------------------");
 
 var deptMostCourses = _basicDbService.GetDepartmentWithMostCourses();
+foreach(char dept in deptMostCourses){
+    System.Console.WriteLine("4.) " + dept);
+}
+
+System.Console.WriteLine("--------------------------");
+
 var studsMoreThenFive = _basicDbService.GetStudentsEnrolledInMoreThanFiveCourses();
-var intruInDept = _basicDbService.GetInstructorsInDepartment();
+foreach(string stud in studsMoreThenFive){
+    System.Console.WriteLine("5.) " + stud);
+}
+
+System.Console.WriteLine("------------------------");
 
 
+var intruInDept = _basicDbService.GetInstructorsInDepartment("Computer Science");
+foreach(string intru in intruInDept){
+    System.Console.WriteLine("6.) " + intru);
+}
+
+System.Console.WriteLine("-------------------------");
+
+var courseByInst = _basicDbService.GetCoursesByInstructor("John");
+foreach(string course in courseByInst){
+    System.Console.WriteLine("7.) " + course);
+}
+System.Console.WriteLine("------------------------------");
 
 
-var courseByInst = _basicDbService.GetCoursesByInstructor();
 var studsWithNoCourse = _basicDbService.GetStudentsWithNoCourses();
-var deptWithNoCourse = _basicDbService.GetDepartmentsWithNoCourses();
-var IntruWithMostCourses = _basicDbService.GetInstructorWithMostCourses();
+foreach(string stud in studentsInCourse){
+    System.Console.WriteLine("8.) " + stud);
+}
+System.Console.WriteLine("----------------------------");
 
+
+var deptWithNoCourse = _basicDbService.GetDepartmentsWithNoCourses();
+foreach(string dept in deptWithNoCourse){
+    System.Console.WriteLine("9.) " + dept);
+}
+System.Console.WriteLine("------------------------------");
+
+var IntruWithMostCourses = _basicDbService.GetInstructorWithMostCourses();
+foreach(char intru in IntruWithMostCourses){
+    System.Console.WriteLine("10.) " + intru);
+}
 
 
 
