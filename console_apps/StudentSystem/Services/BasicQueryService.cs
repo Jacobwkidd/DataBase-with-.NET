@@ -83,14 +83,15 @@ public class BasicQueryServices{
 
     public List<string> GetStudentsWithNoCourses(){
         return _context.Students 
-                                .OrderByDescending(studCourse => studCourse.Courses.Count < 0)                           
+                                .Where(studCourse => studCourse.Courses.Count == 0)    
+                                // .SelectMany(stud => stud)                       
                                 .Select(studCourse => studCourse.FirstName)
                                 .ToList();
     }
 
     public List<string> GetDepartmentsWithNoCourses(){
         return _context.Departments
-                                    .OrderByDescending(dept => dept.Courses.Count < 0)
+                                    .Where(dept => dept.Courses.Count == 0)
                                     .Select(dept => dept.DeptName)
                                     .ToList();
     }

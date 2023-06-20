@@ -42,14 +42,14 @@ foreach(string name in studentsInCourse){
 System.Console.WriteLine("----------------------");
 
 var deptMostCourses = _basicDbService.GetDepartmentWithMostCourses();
-foreach(char dept in deptMostCourses){
-    System.Console.WriteLine("4.) " + dept);
-}
+
+System.Console.WriteLine("4.) " + deptMostCourses);
+
 
 System.Console.WriteLine("--------------------------");
 
-var studsMoreThenFive = _basicDbService.GetStudentsEnrolledInMoreThanFiveCourses();
-foreach(string stud in studsMoreThenFive){
+var studsMoreThanFive = _basicDbService.GetStudentsEnrolledInMoreThanFiveCourses();
+foreach(string stud in studsMoreThanFive){
     System.Console.WriteLine("5.) " + stud);
 }
 
@@ -71,7 +71,7 @@ System.Console.WriteLine("------------------------------");
 
 
 var studsWithNoCourse = _basicDbService.GetStudentsWithNoCourses();
-foreach(string stud in studentsInCourse){
+foreach(string stud in studsWithNoCourse){
     System.Console.WriteLine("8.) " + stud);
 }
 System.Console.WriteLine("----------------------------");
@@ -84,9 +84,9 @@ foreach(string dept in deptWithNoCourse){
 System.Console.WriteLine("------------------------------");
 
 var IntruWithMostCourses = _basicDbService.GetInstructorWithMostCourses();
-foreach(char intru in IntruWithMostCourses){
-    System.Console.WriteLine("10.) " + intru);
-}
+
+    System.Console.WriteLine("10.) " + IntruWithMostCourses);
+
 
 
 
