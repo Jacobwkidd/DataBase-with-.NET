@@ -104,6 +104,11 @@ public class BasicQueryServices{
     }
 
 
-
+    // public Dictionary<string, List<string>> getStudentGroupedByCourse(){
+    //     return _context.Students
+    //                             .SelectMany(s=> s.Courses, (student, course) => new {student, course})
+    //                             .GroupBy(sc => sc.course.CourseName)
+    //                             .toDictionary(group => group.key)
+    // }
 
 }

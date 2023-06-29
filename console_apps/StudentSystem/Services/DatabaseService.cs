@@ -28,8 +28,8 @@ public class DatabaseService{
     //Async
     public async Task<Student?> GetStudentById(int id){
         return await _context.Students
-                                .Include(s => s.Courses)
-                                .SingleOrDefaultAsync(s => s.Id == id);
+                                .Include(student => student.Courses)
+                                .SingleOrDefaultAsync(student => student.Id == id);
     }
 
     public async Task<Instructor?> GetInstructorById(int id){
@@ -38,7 +38,59 @@ public class DatabaseService{
                                     .SingleOrDefaultAsync(instr => instr.Id == id);
     }
 
+    public async Task<List<Course>> GetAllCourseWithStudents(){
+        return await _context.Courses
+                                .Include(courses => courses.Students)
+                                .ToListAsync();
+    }
 
+    public async Task AddStudent(Student student){
+        _context.Students.Add(student);
+        //save to database =>
+        await  _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateStudentName(int studentId, string newFirstName, string newLastName){
+        // find the student 
+        var student = await _context.Students.FindAsync(studentId); 
+        //update the name   
+        student.FirstName = newFirstName;
+        student.LastName = newLastName;
+        //save the changes.
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteStudent(int studentId){
+        // find the student
+        var student = await _context.Students
+                                    .SingleOrDefaultAsync(stud => stud.Id == studentId);
+        //if the student was found, then delete
+        if(student != null){
+            //then a student was found
+            _context.Students.Remove(student);
+            //save the changes
+            await _context.SaveChangesAsync();
+        }
+    }   
+
+    public async Task EnrollStudentInCourse(int studentId, int courseId){
+        // get the student 
+        var student = await _context.Students
+                                .SingleOrDefaultAsync(stud => stud.Id == studentId);
+        // get course
+        var course = await _context.Courses
+                                    .Include(course => course.Students)
+                                    .SingleOrDefaultAsync(course => course.Id == courseId);
+        // update the models
+        if(student != null && course != null){
+            course.Students.Add(student);
+            // save the changes
+            await _context.SaveChangesAsync();
+        }
+        
+
+
+    }
 
 
 }

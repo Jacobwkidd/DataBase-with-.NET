@@ -106,6 +106,41 @@ System.Console.WriteLine("--------------------");
 System.Console.WriteLine(instr.LastName);
 System.Console.WriteLine(instr.Department.DeptName);
 
+//update his name
+// _dbService.UpdateStudentName(4, "Daniel", "Weninger");
+
+// await _dbService.UpdateStudentName(5, "Bobby", "Hill");
+
+// var result = await _dbService.GetAllCourseWithStudents();
+// System.Console.WriteLine("Course::::::::::::::::::::::::");
+// foreach(var elem in result){
+//     System.Console.WriteLine(elem.CourseName);
+// }
+
+
+//Adding a new student
+// var coursesList = await _dbService.GetAllCourseWithStudents();
+
+// Student newStudent = new Student {FirstName ="Les", LastName = "Stroud", JoiningDate = DateTime.Now, Courses = coursesList};
+
+// await _dbService.AddStudent(newStudent);
+
+
+// DELETE
+//await _dbService.DeleteStudent(6);
+
+
+var testStudent = await _dbService.GetStudentById(4);
+System.Console.WriteLine("Student List Before:");
+foreach(var course in testStudent.Courses){
+    System.Console.WriteLine(course.CourseName);
+}
+
+await _dbService.EnrollStudentInCourse(4, 2);
+System.Console.WriteLine("Student List Afer:");
+foreach(var course in testStudent.Courses){
+    System.Console.WriteLine(course.CourseName);
+}
 
 _serviceProvider.Dispose();
 
