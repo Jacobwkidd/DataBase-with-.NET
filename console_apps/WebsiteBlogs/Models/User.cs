@@ -10,5 +10,6 @@ public class User{
     public int? BlogId{get; set;}
     [ForeignKey("BlogTable")]
     
-    public virtual List<Comment>? Comments{get; set;}
+    //public virtual List<Comment>? Comments{get; set;}
+
 }
