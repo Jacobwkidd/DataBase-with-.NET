@@ -9,7 +9,8 @@ public class User{
     public string Email{get; set;}
     public int? BlogId{get; set;}
     [ForeignKey("BlogTable")]
+    public Blog? Blog{get;set;}
     
-    //public virtual List<Comment>? Comments{get; set;}
+    public virtual List<Comment>? Comments{get; set;}
 
 }
