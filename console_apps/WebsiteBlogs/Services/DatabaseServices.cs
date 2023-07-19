@@ -22,7 +22,7 @@ public class DatabaseService : IDatabaseService
 
         public async Task<List<User>> GetAllUsers(){
             return await _context.Users
-                                .ToListAsync();
+                                 .ToListAsync();
         }
         public async Task<List<Blog>> GetAllBlogs(){
             return await _context.Blogs
@@ -34,59 +34,62 @@ public class DatabaseService : IDatabaseService
         }
         public async Task<User?> GetUserById(int id){
             return await _context.Users
-                                       .Include(user => user.Id == id)
                                        .SingleOrDefaultAsync(user => user.Id == id);
         }
         public async Task AddUser(User user){
-            await _context.Users.Add(user);
-                                       
-                                       
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateUser(User user){
-            var singleUser = await _context.User.FindAsync(user);
+        public async Task UpdateUser(int Id, string newFirstName){
+            var singleUser = await _context.Users.FindAsync(Id);
             singleUser.FirstName = newFirstName;
-            singleUser.LastName = newLastName;
+            
             await _context.SaveChangesAsync();
         }
         public async Task DeleteUser(int id){
-            var user = await _context.User
-                                          .SingleOrDefaultAsync(singleUser => singleUser.id == id);
+            var user = await _context.Users
+                                          .SingleOrDefaultAsync(singleUser => singleUser.Id == id);
             if(user != null){
-                _context.User.Remove(user);
+                _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
         }
         public async Task AddBlog(Blog blog){
-            _context.Blog.Add(blog);
+            _context.Blogs.Add(blog);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateBlog(Blog blog){
-            var singleBlog = await _context.Blog.FindAsync(blog);
+        public async Task UpdateBlog(Blog blog, string newBlogName){
+            var singleBlog = await _context.Blogs.FindAsync(blog);
             // have to ask for what I have to change
+            singleBlog.Name = newBlogName;
+            await _context.SaveChangesAsync();
+
         }
         public async Task DeleteBlog(int id){
-            var BlogId = await _context.Blog            
-                                            .SingleOrDefaultAsync(blog => blog.id == id);
+            var BlogId = await _context.Blogs            
+                                            .SingleOrDefaultAsync(blog => blog.Id == id);
             if(BlogId != null){
-                _context.Blog.Remove(BlogId);
+                _context.Blogs.Remove(BlogId);
                 //save changes 
                 await _context.SaveChangesAsync();
             }
 
         }
         public async Task AddPost(Post post){
-            _context.Post.Add(post);
+            _context.Posts.Add(post);
             await _context.SaveChangesAsync();
         }
         public async Task UpdatePost(Post post){
-
+            var newTitle = "";
+            var singlePost = await _context.Posts.FindAsync(post);
+            singlePost.Title = newTitle;
+            await _context.SaveChangesAsync();
         }
         public async Task DeletePost(int id){
-            var singlePost = await _context.Post    
-                                                .SingleOrDefaultAsync(post => post.id == id);
+            var singlePost = await _context.Posts    
+                                                .SingleOrDefaultAsync(post => post.Id == id);
             if(singlePost != null){
-                _context.Post.Remove(singlePost);
+                _context.Posts.Remove(singlePost);
                 await _context.SaveChangesAsync();
             }
         }

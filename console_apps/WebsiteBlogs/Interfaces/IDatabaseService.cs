@@ -22,7 +22,7 @@ public interface IDatabaseService
     Task AddUser(User user); // done
 
     // This method should update an existing user in the database.
-    Task UpdateUser(User user); //done
+    Task UpdateUser(int Id, string newFirstName); //done
 
     // This method should delete a user with the specified id from the database.
     Task DeleteUser(int id); // done
@@ -31,7 +31,7 @@ public interface IDatabaseService
     Task AddBlog(Blog blog); // done
 
     // This method should update an existing blog in the database.
-    Task UpdateBlog(Blog blog); // done
+    Task UpdateBlog(Blog blog, string newBlogName); // done
 
     // This method should delete a blog with the specified id from the database.
     Task DeleteBlog(int id); // done
