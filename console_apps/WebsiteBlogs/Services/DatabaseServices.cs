@@ -59,17 +59,17 @@ public class DatabaseService : IDatabaseService
             await _context.SaveChangesAsync();
         }
         public async Task UpdateBlog(Blog blog, string newBlogName){
-            var singleBlog = await _context.Blogs.FindAsync(blog);
+            var singleBlog = await _context.Blogs.FindAsync(blog.Id);
             // have to ask for what I have to change
             singleBlog.Name = newBlogName;
             await _context.SaveChangesAsync();
 
         }
         public async Task DeleteBlog(int id){
-            var BlogId = await _context.Blogs            
+            var blog = await _context.Blogs            
                                             .SingleOrDefaultAsync(blog => blog.Id == id);
-            if(BlogId != null){
-                _context.Blogs.Remove(BlogId);
+            if(blog != null){
+                _context.Blogs.Remove(blog);
                 //save changes 
                 await _context.SaveChangesAsync();
             }
@@ -81,7 +81,7 @@ public class DatabaseService : IDatabaseService
         }
         public async Task UpdatePost(Post post){
             var newTitle = "";
-            var singlePost = await _context.Posts.FindAsync(post);
+            var singlePost = await _context.Posts.FindAsync(post.Id);
             singlePost.Title = newTitle;
             await _context.SaveChangesAsync();
         }

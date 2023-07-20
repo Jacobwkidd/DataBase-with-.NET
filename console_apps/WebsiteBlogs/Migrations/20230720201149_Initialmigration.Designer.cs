@@ -11,8 +11,8 @@ using WebsiteBlogs.Data;
 namespace WebsiteBlogs.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230719191111_Migrations")]
-    partial class Migrations
+    [Migration("20230720201149_Initialmigration")]
+    partial class Initialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,7 +5,7 @@
 namespace WebsiteBlogs.Migrations
 {
     /// <inheritdoc />
-    public partial class Migrations : Migration
+    public partial class Initialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

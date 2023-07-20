@@ -41,7 +41,7 @@ Console.WriteLine("====================== NUMBER 2 BEGIN ======================"
 // 2. Test GetUserById
 //    Call GetUserById method on dbService with parameter id=1, print the user's name. It should be John Doe.
 var getUserById = await _dbService.GetUserById(1);
-System.Console.WriteLine(getUserById);
+System.Console.WriteLine(getUserById.FirstName + " " +  getUserById.LastName);
 
 
 
@@ -52,8 +52,11 @@ Console.WriteLine("====================== NUMBER 3 BEGIN ======================"
 //    Create a new User object with FirstName = "New", LastName = "User", Email = "new@example.com".
 //    Call AddUser method on dbService with the new User object.
 //    Again, call GetAllUsers and print the count of users. It should be 6.
+
+
 //User newUser = new User {FirstName ="Bob", LastName ="Smith", Email = "new@example.com"};
 // await _dbService.AddUser(newUser);
+allUsers = await _dbService.GetAllUsers();
 foreach(User name in allUsers){
     System.Console.WriteLine(name.FirstName);
 }
@@ -66,7 +69,8 @@ Console.WriteLine("====================== NUMBER 4 BEGIN ======================"
 //    Call UpdateUser method on dbService with the updated User object.
 //    Call GetUserById method with id of the new User, print the user's name. It should be "Updated User".
 // User Id6 = await _dbService.GetUserById(6);
-await _dbService.UpdateUser(6, "Updated");
+await _dbService.UpdateUser(5, "Updated1");
+allUsers = await _dbService.GetAllUsers();
 foreach(User name in allUsers){
     System.Console.WriteLine(name.FirstName);
 }
@@ -78,6 +82,7 @@ Console.WriteLine("====================== NUMBER 5 BEGIN ======================"
 //    Call DeleteUser method on dbService with the id of the new User.
 //    Again, call GetAllUsers and print the count of users. It should be 5.
 await _dbService.DeleteUser(6);
+allUsers = await _dbService.GetAllUsers();
 foreach(User name in allUsers){
     System.Console.WriteLine(name.FirstName);
 }
@@ -100,7 +105,9 @@ Console.WriteLine("====================== NUMBER 7 BEGIN ======================"
 //    Create a new Blog object with Name = "New Blog" and UserId = 1.
 //    Call AddBlog method on dbService with the new Blog object.
 //    Again, call GetAllBlogs and print the count of blogs. It should be 6.
+
 Blog newBlog = new Blog {Name = "New Blog", UserId = 1};
+getAllBlogs = await _dbService.GetAllBlogs();
 await _dbService.AddBlog(newBlog);
 foreach(Blog blog in getAllBlogs){
     System.Console.WriteLine(blog.Name);
@@ -115,6 +122,7 @@ Console.WriteLine("====================== NUMBER 8 BEGIN ======================"
 //    Call UpdateBlog method on dbService with the updated Blog object.
 //    Query the updated Blog from the database and print its name. It should be "Updated Blog".
 await _dbService.UpdateBlog(newBlog, "Updated blog");
+getAllBlogs = await _dbService.GetAllBlogs();
 foreach(Blog blog in getAllBlogs){
     System.Console.WriteLine(blog.Name);
 }
@@ -127,7 +135,8 @@ Console.WriteLine("====================== NUMBER 9 BEGIN ======================"
 // 9. Test DeleteBlog
 //    Call DeleteBlog method on dbService with the id of the new Blog.
 //    Again, call GetAllBlogs and print the count of blogs. It should be 5.
-await _dbService.DeleteBlog(1);
+await _dbService.DeleteBlog(6);
+getAllBlogs = await _dbService.GetAllBlogs();
 foreach(Blog blog in getAllBlogs){
     System.Console.WriteLine(blog.Name);
 }
@@ -151,6 +160,7 @@ Console.WriteLine("====================== NUMBER 11 BEGIN ======================
 //    Again, call GetAllPosts and print the count of posts. It should be 6.
 Post newPost = new Post{Title = "New Post", Content = "This is a new Post", BlogId = 1};
 await _dbService.AddPost(newPost);
+getAllPosts = await _dbService.GetAllPosts();
 foreach(Post post in getAllPosts){
     System.Console.WriteLine(post.Title);
 }
@@ -164,6 +174,7 @@ Console.WriteLine("====================== NUMBER 12 BEGIN ======================
 //    Query the updated Post from the database and print its title. It should be "Updated Post".
 await _dbService.UpdatePost(newPost);
 newPost.Title = "Updated Post";
+getAllPosts = await _dbService.GetAllPosts();
 foreach(Post post in getAllPosts){
     System.Console.WriteLine(post.Title);
 }
@@ -174,7 +185,8 @@ Console.WriteLine("====================== NUMBER 13 BEGIN ======================
 // 13. Test DeletePost
 //    Call DeletePost method on dbService with the id of the new Post.
 //    Again, call GetAllPosts and print the count of posts. It should be 5.
-await _dbService.DeletePost(1);
+await _dbService.DeletePost(6);
+getAllPosts = await _dbService.GetAllPosts();
 foreach(Post post in getAllPosts){
     System.Console.WriteLine(post.Title);
 }
