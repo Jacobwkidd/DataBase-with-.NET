@@ -11,10 +11,14 @@ public class Box<T>{
         this.Thing = thing;
     }
 
-    public T getItem(){
+    public T GetItem(){
         return this.item;
     }
-    public void DisplayType(){
+      public T SetItem(T item){
+        return this.item = item;
+    }
+
+    public string DisplayType(){
         return "Item is of type: " + typeof(T);
     }
 }
