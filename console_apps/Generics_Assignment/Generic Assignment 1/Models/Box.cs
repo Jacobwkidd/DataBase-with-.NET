@@ -9,4 +9,9 @@ public class Box<T>{
     public void print(T item1, T item2){
         System.Console.WriteLine(item1);
     }
+    public void Swap(Box<T> anotherBox){
+        T temp = this.item;
+        this.item = anotherBox.GetValue();
+        anotherBox.SetValue(temp);
+    }
 }
